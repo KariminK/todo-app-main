@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+*{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 18px;
+}
+body{
+    background-color: #1e1e2b;
+    background-image: url(/images/bg-desktop-dark.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+header{
+    display: flex;
+    align-items: center;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+main{
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+header img{
+    width: 50px;
+    height: 50px;
+}
+h1{
+    font-size: 55px;
+    text-transform: uppercase;
+    color: white;
+}
+#todo-list{
+    margin-top: 30px;
+    width: 100%;
+}
+.todo{
+    background-color: #25273c;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: 1px solid #36384d;
+    height: 60px;
+    color: hsl(234, 39%, 85%);
+}
+.checkbox{
+    margin-left: 25px;
+    margin-right: 25px;
+    width: 30px;
+    height: 30px;
+    border-radius: 90px;
+    border: 2px #36384d solid;
+}
+.checkbox:hover{
+    background: linear-gradient(hsl(192, 100%, 67%), hsl(280,87%,65%))
+}
+#newtodo{
+    width: 100%;
+}
