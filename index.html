@@ -19,36 +19,56 @@
   </header>
   <main>
     <div id="newtodo" class="todo">
-      <input type="checkbox" name="checkbox" id="newcheck" class="checkbox">
+      <span id="newcheck">
+      </span>
       <input type="text" name="newtext" id="newinput" placeholder="Create a new trade...">
     </div>
     <div id="todo-list">
-      <div class="todo">
-        <span class="checkbox"></span>
-        <p>Some good text for test</p>
-      </div>
-      <div class="todo">
-        <span class="checkbox"></span>
-        <p>Some good text for test</p>
-      </div>
-      <div class="todo">
-        <span class="checkbox"></span>
-        <p>Some good text for test</p>
-      </div>
-      <div class="todo">
-        <span class="checkbox"></span>
-        <p>Some good text for test</p>
-      </div>
-      <div class="todo">
-        <span class="checkbox"></span>
-        <p>Some good text for test</p>
+      <div id="items">
+        <div class="todo ">
+          <span class="checkbox">
+            <div></div>
+          </span>
+          <p class="td-txt">Some good text for test</p>
+          <button class="todo-btn"></button>
+        </div>
+        <div class="todo ">
+          <span class="checkbox">
+            <div></div>
+          </span>
+          <p class="td-txt">Some good text for test</p>
+          <button class="todo-btn"></button>
+        </div>
+        <div class="todo ">
+          <span class="checkbox">
+            <div></div>
+          </span>
+          <p class="td-txt">Some good text for test</p>
+          <button class="todo-btn"></button>
+        </div>
+        <div class="todo ">
+          <span class="checkbox">
+            <div></div>
+          </span>
+          <p class="td-txt">Some good text for test</p>
+          <button class="todo-btn"></button>
+        </div>
+        <div class="todo ">
+          <span class="checkbox">
+            <div></div>
+          </span>
+          <p class="td-txt">Some good text for test</p>
+          <button class="todo-btn"></button>
+        </div>
       </div>
       <div class="todo info">
-        <p>0 items left</p>
-        <button class="btn" id="all">All</button>
-        <button class="btn" id="active">Active</button>
-        <button class="btn" id="Comp">Completed</button>
-        <button class="btn" id="clearComp">Clear Completed</button>
+        <p id="itemsLeft">0 items left</p>
+        <div>
+          <button class="info-btn sort activ" id="all">All</button>
+          <button class="info-btn sort" id="active">Active</button>
+          <button class="info-btn sort" id="comp">Completed</button>
+        </div>
+        <button class="info-btn" id="clearComp">Clear Completed</button>
       </div>
     </div>
     <span>Drag and drop to reorder list</span>
@@ -60,5 +80,6 @@
       Coded by <a href="#">Your Name Here</a>.
     </div>
   </footer>
+  <script src="script.js"></script>
 </body>
 </html>

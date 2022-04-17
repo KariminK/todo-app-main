@@ -13,7 +13,7 @@ body{
 header{
     display: flex;
     align-items: center;
-    width: 50%;
+    width: 666.5px;
     margin-left: auto;
     margin-right: auto;
     flex-wrap: wrap;
@@ -22,11 +22,12 @@ header{
 main{
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    width: 666.5px;
 }
 header img{
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
 }
 h1{
     font-size: 55px;
@@ -36,28 +37,129 @@ h1{
 #todo-list{
     margin-top: 30px;
     width: 100%;
+    background-color: #25273c;
+    border-radius: 5px;
 }
 .todo{
     background-color: #25273c;
     width: 100%;
     display: flex;
-    justify-content: flex-start;
     align-items: center;
     border-bottom: 1px solid #36384d;
     height: 60px;
     color: hsl(234, 39%, 85%);
+    transition: all 300ms;
+    border-radius: 5px;
 }
-.checkbox{
+.todo:hover p{
+    cursor: pointer;
+}
+.checkbox, #newcheck{
     margin-left: 25px;
     margin-right: 25px;
     width: 30px;
     height: 30px;
     border-radius: 90px;
     border: 2px #36384d solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 300ms;
+}
+.checkbox div, #newcheck div{
+    border-radius: 90px;
+    width: 27px;
+    height: 27px;
+    background-color: #25273c;
+    transition: all 300ms;
+}
+.checked{
+    background-color: transparent;
+    background-image: url(/images/icon-check.svg);
+    background-repeat: no-repeat;
+    background-size: 12px;
+    background-position: 7.5px;
+}
+.done{
+    text-decoration: line-through;
+    color: hsl(240, 6%, 48%);
 }
 .checkbox:hover{
     background: linear-gradient(hsl(192, 100%, 67%), hsl(280,87%,65%))
 }
+#newcheck:hover{
+    background-image: url(/images/icon-check.svg);
+    background-repeat: no-repeat;
+    background-size: 12px;
+    background-position: 7.5px;
+}
 #newtodo{
     width: 100%;
+    border-radius: 5px;
+}
+#newinput{
+    background-color: transparent;
+    border: 0px transparent;
+    color: white;
+    width: 100%;
+}
+#newinput:focus{
+    outline: none;
+
+}
+
+.todo-btn{
+    justify-self: flex-end;
+    background-image: url(/images/icon-cross.svg);
+    margin-left: auto;
+    margin-right: 30px;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: 0px;
+    background-size: cover;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 300ms;
+}
+.todo:hover .todo-btn{
+    opacity: 1;
+}
+.todo:hover p{
+    color: hsl(236, 33%, 92%);
+}
+.info{
+    display: flex;
+    justify-content: space-between;
+    cursor: default;
+    border-radius: 5px;
+    border-bottom: 0px;
+}
+.info p{
+    margin-left: 30px;
+    font-size: 15px;
+}
+.info-btn{
+    font-size: 15px;
+    border: none;
+    background-color: transparent;
+    color: hsl(234, 11%, 52%);
+    transition: all 300ms;
+    cursor: pointer;
+}
+.info-btn:hover{
+    color: hsl(236, 33%, 92%);
+}
+#clearComp{
+    margin-right: 30px;
+}
+.info:hover p{
+    color: hsl(234, 39%, 85%);
+}
+.activ{
+    color: #2f6aff;
+}
+.hidden{
+    display: none;
 }
