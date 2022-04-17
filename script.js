@@ -1,9 +1,7 @@
 var chckbox = document.querySelectorAll('.checkbox');
-var chckdiv = document.querySelectorAll('.checkbox div');
 var todotxt = document.querySelectorAll('.td-txt');
 var todoList = document.querySelectorAll('#items .todo');
-var todoItems = document.querySelectorAll('#items .todo .td-txt');
-
+var todolistid = document.querySelector('#items');
 var all = document.querySelector('#all');
 var active = document.querySelector('#active');
 var comp = document.querySelector('#comp');
@@ -11,8 +9,8 @@ var removebtn = document.querySelectorAll('.todo-btn');
 var infobtns = document.querySelectorAll('.sort');
 var itemleft = document.querySelector('#itemsLeft');
 var clearComp = document.querySelector('#clearComp');
-var chckbtn = document.querySelector('#newcheck');
-itemleft.innerText = todoItems.length + " items left";
+var addbtn = document.querySelector('#newcheck');
+itemleft.innerText = todoList.length + " items left";
 const visibleitems = ()=>{
     let viselem = []
     let todoItvis = document.querySelectorAll('#todo-list .todo')
@@ -23,46 +21,11 @@ const visibleitems = ()=>{
     })
     return viselem;
 }
-const checkfunction = ()=>{
-    chckbox = document.querySelectorAll('.checkbox');
-    chckdiv = document.querySelectorAll('.checkbox div');
-    todotxt = document.querySelectorAll('.td-txt');
-    todoList = document.querySelectorAll('#items .todo');
-    todoItems = document.querySelectorAll('#items .todo .td-txt');
-    
-}
-const checkboxagain = ()=>{
-    checkfunction();
-    for(let i = 0; i<chckbox.length; i++){
-        chckbox[i].addEventListener('click', ()=>{
-            if(chckdiv[i].classList.contains('checked')){
-                chckdiv[i].classList.remove('checked');
-                todotxt[i].classList.remove('done');
-                todoList[i].classList.remove('done');
-            }else{
-                chckdiv[i].classList.add('checked');
-                todotxt[i].classList.add('done');
-                todoList[i].classList.add('done');
-            }
-        })
-    }
-    for(let i = 0; i<todoItems.length; i++){
-        removebtn[i].addEventListener('click', ()=>{
-            if(todoList[i].classList.contains('info') == false){
-                todoList[i].remove();
-            }
-            let todo = document.querySelectorAll('#todo-list .todo');
-            itemleft.innerText = todo.length-1 + " items left";
-        })
-    }
-}
 const newelem = (txt)=>{
     let div = document.createElement('div');
     div.classList.add('todo');
-    let check = document.createElement('span');
+    let check = document.createElement('div');
     check.classList.add('checkbox');
-    let checkdiv = document.createElement('div');
-    check.appendChild(checkdiv);
     let todotext = document.createElement('p');
     todotext.classList.add('td-text');
     todotext.innerText = txt;
@@ -71,16 +34,26 @@ const newelem = (txt)=>{
     div.appendChild(check);
     div.appendChild(todotext);
     div.appendChild(todobtn);
-    let todolistid = document.querySelector('#items');
     todolistid.appendChild(div);
-    checkfunction();
-    checkboxagain();
+    todoList += div;
+    chckbox += check;
+    removebtn += todobtn;
+}
+const checkboxfunction = ()=>{
+    for (let i = 0; i < todoList.length; i++) {
+        chckbox[i].addEventListener('click', ()=>{
+            if(todoList[i].classList.contains('done')){
+                chckbox[i].classList.remove('checked');
+                todoList[i].classList.remove('done');
+            }else{
+                chckbox[i].classList.add('checked');
+                todoList[i].classList.add('done');
+            }
+        })
+    }
 }
 
-checkfunction();
-checkboxagain();
-
-
+checkboxfunction();
 
 // BUTTONS
 infobtns.forEach(btn=>{
@@ -157,9 +130,9 @@ clearComp.addEventListener('click', ()=>{
 
 // NEW ELEMENT
 
-chckbtn.addEventListener('click', ()=>{
+addbtn.addEventListener('click', ()=>{
     let txtinput = document.querySelector('#newinput');
     if(txtinput.value != ""){
         newelem(txtinput.value);
-    }  
+    }
 })
