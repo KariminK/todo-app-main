@@ -6,7 +6,7 @@
 }
 body{
     background-color: #1e1e2b;
-    background-image: url(./images/bg-desktop-dark.jpg);
+    background-image: url('./images/bg-desktop-dark.jpg');
     background-repeat: no-repeat;
     background-size: 100%;
 }
