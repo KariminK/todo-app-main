@@ -38,8 +38,27 @@ const newelem = (txt)=>{
     todoList += div;
     chckbox += check;
     removebtn += todobtn;
+    check.addEventListener('click', ()=>{
+        if(div.classList.contains('done')){
+            check.classList.remove('checked');
+            div.classList.remove('done');
+        }else{
+            check.classList.add('checked');
+            div.classList.add('done');
+        }
+    })
+    todobtn.addEventListener('click', ()=>{
+        div.remove();
+        todoList = document.querySelectorAll('#items .todo');
+        itemleft.innerText = todoList.length + " items left";
+    })
+    div.draggable = true;
+    todoList = document.querySelectorAll('#items .todo');
+    itemleft.innerText = todoList.length + " items left";
 }
 const checkboxfunction = ()=>{
+    let chckbox = document.querySelectorAll('.checkbox');
+    let todoList = document.querySelectorAll('#items .todo');
     for (let i = 0; i < todoList.length; i++) {
         chckbox[i].addEventListener('click', ()=>{
             if(todoList[i].classList.contains('done')){
@@ -51,8 +70,17 @@ const checkboxfunction = ()=>{
             }
         })
     }
+    for(let i = 0; i< todoList.length; i++){
+        removebtn[i].addEventListener('click', ()=>{
+            todoList[i].remove();
+            todoList = document.querySelectorAll('#items .todo');
+            itemleft.innerText = todoList.length + " items left";
+        })
+    }
 }
-
+todolistid.addEventListener('dragover', e=>{
+    e.preventDefault();
+})
 checkboxfunction();
 
 // BUTTONS
@@ -134,5 +162,6 @@ addbtn.addEventListener('click', ()=>{
     let txtinput = document.querySelector('#newinput');
     if(txtinput.value != ""){
         newelem(txtinput.value);
+        txtinput.value = ""
     }
 })
